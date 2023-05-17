@@ -4,10 +4,10 @@ namespace Core;
 
 class ConfigController
 {
-    private string $url;
-    private array $urlArray;
-    private string $urlController;
-    private string $urlMetodo;
+    private  $url;
+    private $urlArray;
+    private  $urlController;
+    private  $urlMetodo;
 
     public function __construct()
     {
@@ -30,5 +30,10 @@ class ConfigController
         }
 
         echo "Controller: {$this->urlController} - Método: {$this->urlMetodo} <br>";
+    }
+
+    public function loadPage()
+    {
+        echo "Carregar a página/Controller <br>";
     }
 }
