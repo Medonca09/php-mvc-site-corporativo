@@ -29,11 +29,16 @@ class ConfigController
             $this->urlMetodo = "index";
         }
 
-        echo "Controller: {$this->urlController} - Método: {$this->urlMetodo} <br>";
+        //echo "Controller: {$this->urlController} - Método: {$this->urlMetodo} <br>";
     }
 
     public function loadPage()
     {
-        echo "Carregar a página/Controller <br>";
+        $urlController = ucwords($this->urlController);
+        //echo "Carregar a página/Controller <br>";
+        $classLoad = "\\Sts\Controllers\\" . $this->urlController;
+        //echo $classLoad . "<br>";
+        $classPage = new $classLoad;
+        $classPage->index();
     }
 }
