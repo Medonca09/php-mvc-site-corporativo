@@ -1,6 +1,9 @@
 <?php
 
 namespace Sts\Models;
+
+use DivisionByZeroError;
+use Exception;
 use PDO;
 use PDOException;
 
@@ -19,12 +22,14 @@ abstract class Conn
         try{
             //Conexao com a porta
              //$this->connect = new PDO($this->db . ':host=' . $this->host. ';port=' . $this->port . ';dbname=' . $this->dbname, $this->user, $this->pass);
-            
              //Conexao sem a porta
              $this->connect = new PDO($this->db . ':host=' . $this->host. ';dbname=' . $this->dbname, $this->user, $this->pass, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
              //echo "Conexão realizada com sucesso!";
+             //var_dump('continuou');
              return $this->connect;
-        }catch (PDOException $err){
+        }
+        catch (PDOException $err){
+            //var_dump($err);
             die('Erro: por favor tente novamente. Caso o problema persista, entre em contato com o administrador adm@empresa.com');
         }
         

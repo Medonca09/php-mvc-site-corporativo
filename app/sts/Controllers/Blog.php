@@ -3,6 +3,7 @@
 namespace Sts\Controllers;
 
 use Core\ConfigView;
+use Sts\Models\StsListarBlog;
 
 class Blog
 {
@@ -10,10 +11,13 @@ class Blog
 
     public function index(){
         //echo "Controller/Página Blog<br>";
-        $listarArtigo = new \Sts\Models\StsListarBlog();
-        $this->dados['artigos'] = $listarArtigo->listar();
-        //var_dump($this->dados);
-        $carregarView = new \Core\ConfigView("sts/Views/blog/listarArtigo",$this->dados);
+        $listarArtigo = new StsListarBlog();
+        $dados['artigos'] = $listarArtigo->listar();
+        //var_dump($dados);
+        $carregarView = new ConfigView("sts/Views/blog/listarArtigo",$dados);
+       /*  var_dump($carregarView);
+        die(); */
+
         $carregarView->renderizar();
     }
 }

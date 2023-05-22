@@ -7,9 +7,10 @@ class ConfigView
 
     private $nome;
     private $dados;
+    
     public function __construct(string $nome, array $dados)
     {
-        $this->nome = $nome;
+        $this->nome = $nome; 
         $this->dados = $dados;
         //var_dump($this->nome);
         //var_dump($this->dados);
