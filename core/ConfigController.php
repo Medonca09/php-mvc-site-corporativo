@@ -2,14 +2,20 @@
 
 namespace Core;
 
+/**
+ * Receber a URL e manipula
+ * Carregar a CONTROLLER
+ * 
+ * @author Lucas <lucas@lucas.com>
+ */
 class ConfigController extends Config
 {
-    private string $url;
-    private array $urlArray;
-    private string $urlController;
+    private $url;
+    private $urlArray;
+    private $urlController;
     /*private string $urlParameter;*/
-    private string $urlSlugController;
-    private array $format;
+    private $urlSlugController;
+    private $format;
 
     public function __construct()
     {

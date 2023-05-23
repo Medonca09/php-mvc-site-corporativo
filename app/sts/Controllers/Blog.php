@@ -18,6 +18,6 @@ class Blog
        /*  var_dump($carregarView);
         die(); */
 
-        $carregarView->renderizar();
+        $carregarView->loadView();
     }
 }

@@ -2,27 +2,37 @@
 
 namespace Core;
 
+/**
+ * Carregar as páginas da View
+ * 
+ * @author Lucas <lucas@lucas.com>
+ */
 class ConfigView
 {
-
-    private $nome;
-    private $dados;
+    /**
+     * Receber o endereço da VIEW e od dados
+     * @param string $name Endereço da VIEW que deve ser carregada
+     * @param array $dados Dados que a VIEW deve receber.
+     */
+    private $name;
+    private $data;
     
-    public function __construct(string $nome, array $dados)
+    public function __construct($name, array $data)
     {
-        $this->nome = $nome; 
-        $this->dados = $dados;
-        //var_dump($this->nome);
-        //var_dump($this->dados);
+        $this->name = $name; 
+        $this->data = $data;
+        var_dump($this->name);
+        var_dump($this->data);
     }
 
-    public function renderizar()
+    public function loadView()
     {
         //var_dump('app/' . $this->nome . '.php');
-        if(file_exists('app/' . $this->nome . '.php')){
-            include 'app/' . $this->nome . '.php';
+        if(file_exists('app/' . $this->name . '.php'))
+        {
+            include 'app/' . $this->name . '.php';
         }else{
-            echo "Erro: por favor tente novamente. Caso o problema persista, entre em contato com o administrador adm@empresa.com";
+            die("Erro: Por favor tente novamente mais tarde. Caso o problema persista, entre em contato com o administrador " . EMAILADM) ;
         }
     }
 }
