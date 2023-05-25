@@ -28,9 +28,9 @@ class ConfigView
     public function loadView(): void
     {
         if(file_exists('app/' . $this->name . '.php')){
-            
+            include 'app/sts/Views/include/header.php';
             include 'app/' . $this->name . '.php';
-            
+            include 'app/sts/Views/include/footer.php';
         }else{
             die("Erro: Por favor tente novamente mais tarde. Caso o problema persista, entre em contato com o administrador " . EMAILADM);
         }

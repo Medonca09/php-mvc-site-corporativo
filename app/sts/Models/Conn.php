@@ -2,8 +2,6 @@
 
 namespace Sts\Models;
 
-use DivisionByZeroError;
-use Exception;
 use PDO;
 use PDOException;
 
