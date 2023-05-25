@@ -21,18 +21,18 @@ class ConfigView
     {
         $this->name = $name; 
         $this->data = $data;
-        var_dump($this->name);
-        var_dump($this->data);
+        //var_dump($this->name);
+        //var_dump($this->data);
     }
 
-    public function loadView()
+    public function loadView(): void
     {
-        //var_dump('app/' . $this->nome . '.php');
-        if(file_exists('app/' . $this->name . '.php'))
-        {
+        if(file_exists('app/' . $this->name . '.php')){
+            
             include 'app/' . $this->name . '.php';
+            
         }else{
-            die("Erro: Por favor tente novamente mais tarde. Caso o problema persista, entre em contato com o administrador " . EMAILADM) ;
+            die("Erro: Por favor tente novamente mais tarde. Caso o problema persista, entre em contato com o administrador " . EMAILADM);
         }
     }
 }
