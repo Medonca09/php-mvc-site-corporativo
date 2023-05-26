@@ -14,7 +14,7 @@ class Blog
         $listarArtigo = new StsListarBlog();
         $dados['artigos'] = $listarArtigo->listar();
         //var_dump($dados);
-        $carregarView = new ConfigView("sts/Views/blog/listarArtigo",$dados);
+        $carregarView = new ConfigView("sts/Views/blog/listarArtigo/connection",$dados);
        /*  var_dump($carregarView);
         die(); */
 

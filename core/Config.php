@@ -14,7 +14,11 @@ abstract class Config
         define('CONTROLLERERRO', 'Erro');
 
         //Credenciais do banco de dados
-
+        define('HOST', 'localhost');
+        define('USER', 'root');
+        define('PASS', '');
+        define('DBNAME', 'site corporativo');
+        define('PORT', 3306);
         define('EMAILADM', 'adm@empresa.com.br');
     }
 }
