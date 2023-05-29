@@ -35,4 +35,5 @@ class ConfigView
             die("Erro: Por favor tente novamente mais tarde. Caso o problema persista, entre em contato com o administrador " . EMAILADM);
         }
     }
+    
 }

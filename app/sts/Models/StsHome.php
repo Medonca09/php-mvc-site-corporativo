@@ -2,6 +2,7 @@
 
 namespace Sts\Models;
 
+use PDO;
 
 class StsHome
 {
@@ -24,17 +25,36 @@ class StsHome
         ];*/
 
         $connection = new \Sts\Models\helper\StsConn();
-        $conn = $connection->connectDb();
+        $this->connection = $connection->connectDb();
 
         $query_artigos = "SELECT id, titulo, conteudo 
                         FROM artigos
-                        ORDER BY id 
-                        LIMIT 1";
-        $result_artigos = $conn->prepare($query_artigos);
-        $result_artigos->execute();
-        $this->data = $retorno = $result_artigos->fetch();
+                        WHERE id=:id
+                        LIMIT :limit";
+        $result_artigos = $this->connection->prepare($query_artigos);
 
-        //var_dump($retorno);
+        /* var_dump($result_artigos);
+        die(); 
+
+        $id = 1;
+        $limit = 1;
+
+        /* Utilizando bindParam não é possível passar o segundo parâmetro da função sem uma variável */
+        /*$result_artigos->bindParam('id', $id, PDO::PARAM_INT);
+        $result_artigos->bindParam('limit', $limit, PDO::PARAM_INT); 
+
+        $result_artigos->bindValue(':limit', 1, PDO::PARAM_INT);
+        $result_artigos->bindValue(':id', 1, PDO::PARAM_INT);
+
+        $result_artigos->execute();
+        $this->data = $result_artigos->fetch();*/
+
+        $viewHome = new \Sts\Models\helper\StsRead();
+        $viewHome->exeRead("artigos");
+        $this->data= $viewHome->getResult();
+
+        //var_dump($this->data);
+
         return $this->data;
     }
 }

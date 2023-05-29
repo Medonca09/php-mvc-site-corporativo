@@ -5,7 +5,7 @@ namespace Sts\Models\helper;
 use PDO;
 use PDOException;
 
-class StsConn
+abstract class StsConn
 {
     private $host = HOST;
     private $user = USER;
